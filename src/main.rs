@@ -40,10 +40,8 @@ fn execute(args: &[&str]) -> bool {
 fn change_directory(args: &[&str]) {
     if args.len() < 2 {
         eprintln!("lsh: expected argument to \"cd\"");
-    } else {
-        if let Err(e) = env::set_current_dir(args[1]) {
+    } else if let Err(e) = env::set_current_dir(args[1]) {
             eprintln!("lsh: {}", e);
-        }
     }
 }
 
