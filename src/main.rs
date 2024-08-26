@@ -6,7 +6,7 @@ const BUILTIN_COMMANDS: [&str; 3] = ["cd", "help", "exit"];
 
 fn main() {
     loop {
-        print!("> ");
+        print!("_> ");
         io::stdout().flush().unwrap();
 
         let input = read_line();
@@ -46,8 +46,6 @@ fn change_directory(args: &[&str]) {
 }
 
 fn print_help() {
-    println!("RSH");
-    println!("Type program names and arguments, and hit enter.");
     println!("The following are built in:");
     for cmd in BUILTIN_COMMANDS.iter() {
         println!("  {}", cmd);
@@ -55,7 +53,7 @@ fn print_help() {
     println!("Use the man command for information on other programs.");
 }
 
-fn launch_program(args: &[&str]) {
+fn launch_program(args: &[&str]) { // this doesn't support interactive programs or piping
     let output = Command::new(args[0])
         .args(&args[1..])
         .output();
