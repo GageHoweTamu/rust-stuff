@@ -1,0 +1,8 @@
+[package]
+name = "rust-stuff"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clippy = "0.0.302"
+rustyline = "14.0.0"
